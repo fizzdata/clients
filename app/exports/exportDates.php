@@ -13,6 +13,7 @@ class ExportDates implements FromCollection, WithHeadings
 {
 
     protected $date_from;
+
     protected $date_to;
 
 
