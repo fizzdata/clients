@@ -94,7 +94,7 @@ class CheskyFogel extends Model
         } else {
             $response = json_decode($response, true);
 
-            if (! is_null($response['items'])):
+            if (! empty($response['items'])):
                 return $response['items'][0]['hebrew'];
             endif;
         }
@@ -125,7 +125,7 @@ class CheskyFogel extends Model
         } else {
             $response = json_decode($response, true);
 
-            if (! is_null($response['items'])):
+            if (! empty($response['items'])):
                 return $response['items'][0]['hebrew'];
             else:
                 return '';
