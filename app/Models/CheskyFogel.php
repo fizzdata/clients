@@ -87,7 +87,6 @@ class CheskyFogel extends Model
 
         $response = curl_exec($ch);
 
-        dump($response);
 
         if (curl_error($ch)) {
             return 'Request Error:' . curl_error($ch);
@@ -118,7 +117,6 @@ class CheskyFogel extends Model
 
         $response = curl_exec($ch);
 
-        dump('url: ' . $url . ', Response : ' . $response);
 
         if (curl_error($ch)) {
             return 'Request Error:' . curl_error($ch);
