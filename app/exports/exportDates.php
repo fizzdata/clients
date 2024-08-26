@@ -49,7 +49,7 @@ class ExportDates implements FromCollection, WithHeadings
 
             $dates[$i][$date->format('l') . ' english'] = $date->format('F j, y');
             $dates[$i][$date->format('l') . ' yiddish'] = CheskyFogel::get_y_date($date->format('Y-m-d'));
-            $dates[$i][$date->format('l') . ' yiddish'] = CheskyFogel::yom_tov($date->format('Y-m-d'));
+            $dates[$i][$date->format('l') . ' yom_tov'] = CheskyFogel::yom_tov($date->format('Y-m-d'));
 
             if ($date->format('l') == 'Saturday'):
                 $dates[$i][$date->format('l') . ' Parsha'] = CheskyFogel::parsha($date->format('Y-m-d'));
@@ -70,24 +70,39 @@ class ExportDates implements FromCollection, WithHeadings
             "Sunday day",
             "Sunday english",
             "Sunday yiddish",
+            "Sunday YomTov",
             "Monday day",
             "Monday english",
             "Monday yiddish",
+            "Monday YomTov",
+
             "Tuesday day",
             "Tuesday english",
             "Tuesday yiddish",
+            "Tuesday YomTov",
+
             "Wednesday day",
             "Wednesday english",
             "Wednesday yiddish",
+            "Wednesday YomTov",
+
             "Thursday day",
             "Thursday english",
             "Thursday yiddish",
+            "Thursday YomTov",
+
             "Friday day",
             "Friday english",
             "Friday yiddish",
+            "Friday YomTov",
+
             "Saturday day",
             "Saturday english",
             "Saturday yiddish",
+            "Saturday YomTov",
+            "Sunday Parsha",
+
+
         ];
     }
 }
