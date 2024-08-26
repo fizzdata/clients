@@ -87,14 +87,16 @@ class CheskyFogel extends Model
 
         $response = curl_exec($ch);
 
-        dd($response);
+        dump($response);
 
         if (curl_error($ch)) {
             return 'Request Error:' . curl_error($ch);
         } else {
             $response = json_decode($response, true);
 
-            return $response['items'][0]['hebrew'];
+            if ($response['items'] != false):
+                return $response['items'][0]['hebrew'];
+            endif;
         }
 
         curl_close($ch);
@@ -116,14 +118,18 @@ class CheskyFogel extends Model
 
         $response = curl_exec($ch);
 
-        dd($response);
+        dump($response);
 
         if (curl_error($ch)) {
             return 'Request Error:' . curl_error($ch);
         } else {
             $response = json_decode($response, true);
 
-            return $response['items'][0]['hebrew'];
+            if ($response['items'] != false):
+                return $response['items'][0]['hebrew'];
+            else:
+                return '';
+            endif;
         }
 
         curl_close($ch);
