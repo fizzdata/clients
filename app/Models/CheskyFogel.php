@@ -76,7 +76,7 @@ class CheskyFogel extends Model
 
         $ch = curl_init();
 
-        $url = "https://www.hebcal.com/hebcal?v=1&cfg=json&ss=on&s=on&start= " . $date . "&end=" . $date;
+        $url = "https://www.hebcal.com/hebcal?v=1&cfg=json&ss=on&s=on&start=" . $date . "&end=" . $date;
 
 
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
@@ -107,7 +107,7 @@ class CheskyFogel extends Model
 
         $ch = curl_init();
 
-        $url = "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&min=on&nx=on&ss=on&start= " . $date . "&end=" . $date;
+        $url = "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&min=on&nx=on&ss=on&start=" . $date . "&end=" . $date;
 
 
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
