@@ -49,6 +49,7 @@ class ExportDates implements FromCollection, WithHeadings
 
             $dates[$i][$date->format('l') . ' english'] = $date->format('F j, y');
             $dates[$i][$date->format('l') . ' yiddish'] = CheskyFogel::get_y_date($date->format('Y-m-d'));
+            $dates[$i][$date->format('l') . ' yiddish'] = CheskyFogel::yom_tov($date->format('Y-m-d'));
 
             if ($date->format('l') == 'Saturday'):
                 $dates[$i][$date->format('l') . ' Parsha'] = CheskyFogel::parsha($date->format('Y-m-d'));

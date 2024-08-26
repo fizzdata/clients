@@ -56,7 +56,7 @@ class CheskyFogel extends Model
                 $y_day = "דינסטאג";
                 break;
             case 'Wednesday':
-                $y_day = "מיטואך";
+                $y_day = "מיטוואך";
                 break;
             case 'Thursday':
                 $y_day = "דאנערשטאג";
@@ -76,7 +76,36 @@ class CheskyFogel extends Model
 
         $ch = curl_init();
 
-        $url = "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&min=on&mod=on&nx=on&ss=on&mf=on&c=on&geo=geoname&geonameid=3448439&M=on&s=on&start= " . $date . "&end=" . $date;
+        $url = "https://www.hebcal.com/hebcal?v=1&cfg=json&ss=on&s=on&start= " . $date . "&end=" . $date;
+
+
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 80);
+
+        $response = curl_exec($ch);
+
+        dd($response);
+
+        if (curl_error($ch)) {
+            return 'Request Error:' . curl_error($ch);
+        } else {
+            $response = json_decode($response, true);
+
+            return $response['error'];
+        }
+
+        curl_close($ch);
+    }
+
+    public static function yom_tov($date)
+    {
+
+        $ch = curl_init();
+
+        $url = "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&min=on&nx=on&ss=on&start= " . $date . "&end=" . $date;
 
 
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
