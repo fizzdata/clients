@@ -94,7 +94,7 @@ class CheskyFogel extends Model
         } else {
             $response = json_decode($response, true);
 
-            return $response['error'];
+            return $response['items'][0]['hebrew'];
         }
 
         curl_close($ch);
@@ -123,7 +123,7 @@ class CheskyFogel extends Model
         } else {
             $response = json_decode($response, true);
 
-            return $response['error'];
+            return $response['items'][0]['hebrew'];
         }
 
         curl_close($ch);
